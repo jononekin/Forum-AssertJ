@@ -38,7 +38,7 @@ public class ForumGUITest {
 		bl=new ForumBL(new ForumInMemoryDAO());
 		User usr=bl.addUser("33404521B", "jon","tel456");
 		userPurchaseGUI=  new UserPurchaseGUI(usr, bl);
-		userPurchaseGUI.setVisible(true);
+		//userPurchaseGUI.setVisible(true);
 
 		//mainWindowFixture = new FrameFixture(robot,userPurchaseGUI);
 
