@@ -83,15 +83,11 @@ public class ForumGUITest {
 			//execute the interactions
 			jComboBoxFixture.selectItem(art.toString());
 			jTextQtyFixture.setText(qty);
-			lo(1);
 			addButtonFixture.click();
-			lo(1);
 			getBuyButtonFixture.click();
 			//
-
 			//write the assertions
 			labelFixture.requireText(expectedResult);
-			lo(5);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

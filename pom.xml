@@ -3,6 +3,47 @@
   <groupId>iso2</groupId>
   <artifactId>Forum22AsssertJ</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <sonar.organization>jononekin</sonar.organization>
+	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	<sonar.projectKey>jononekin_Forum-assertJ</sonar.projectKey>
+	<sonar.login>38386f6e5656055558f88bc3cb159e9da58f7486</sonar.login>
+  </properties>
+  <build>
+    <plugins>
+       <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.3</version>
+            <configuration>
+                <source>11</source>
+                <target>11</target>
+            </configuration>
+        </plugin>
+	<plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.6</version>
+			<executions>
+				<execution>
+					<id>prepare-agent</id>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+				</execution>
+			<execution>
+				<id>report</id>
+					<goals>
+						<goal>report</goal>
+					</goals>
+			</execution>
+		</executions>
+	</plugin>
+   </plugins>
+</build>
+  
   <dependencies>
 		 <dependency>
  			 <groupId>org.assertj</groupId>
