@@ -32,7 +32,7 @@ jobs:
       - name: install Tight VNC
         run: sudo apt-get install -y tightvncserver
       - name permits
-      	run: chmod 777 ./scripts/execute-on-vnc.sh
+      	run: sudo chmod -R 777 ./scripts/execute-on-vnc.sh
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
