@@ -18,7 +18,11 @@ done
 echo "Using first available display :${NEW_DISPLAY}"
 
 OLD_DISPLAY=${DISPLAY}
-vncpasswd "123456" 
+umask 0077                                        # use safe default permissions
+mkdir -p "$HOME/.vnc"                             # create config directory
+chmod go-rwx "$HOME/.vnc"                         # enforce safe permissions
+vncpasswd -f <<<"$password" >"$HOME/.vnc/passwd"  # generate and write a password
+ 
 vncserver ":${NEW_DISPLAY}"  -localhost -geometry 1600x1200 -depth 16
 export DISPLAY=:${NEW_DISPLAY}
 
