@@ -18,7 +18,8 @@ done
 echo "Using first available display :${NEW_DISPLAY}"
 
 OLD_DISPLAY=${DISPLAY}
-vncserver ":${NEW_DISPLAY}" -f -localhost -geometry 1600x1200 -depth 16
+vncpasswd -f 
+vncserver ":${NEW_DISPLAY}"  -localhost -geometry 1600x1200 -depth 16
 export DISPLAY=:${NEW_DISPLAY}
 
 "$@"
