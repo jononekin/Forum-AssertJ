@@ -30,8 +30,13 @@ public interface ForumDAOInterface {
 	void buyDAO(User u, Date d);
 
 	Iterator<Purchase> getPurchasesDAO(User u, Date firstDate, Date lastDate);
+	
+	void removeLastPurchaseDAO(User usr);
 
-	Article addStockDAO(String id, String desc, int price, boolean isOutlet, int stock);
+	Article addArticleDAO(String id, String desc, int price, boolean isOutlet, int stock);
+	
+	Article addStockDAO(String id, int stock);
+
 
 	Article removeStockDAO(String id);
 	

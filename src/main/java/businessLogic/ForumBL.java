@@ -92,8 +92,15 @@ public class ForumBL implements ForumBLInterface {
 	/* (non-Javadoc)
 	 * @see businessLogic.ForumBLInterface#addStock(java.lang.String, java.lang.String, int, boolean, int)
 	 */
-	public Article addStock(String id, String desc, int precio, boolean isOutlet, int stock) {
-		return dao.addStockDAO(id, desc, precio, isOutlet,stock);
+	public Article addArticleStock(String id, String desc, int precio, boolean isOutlet, int stock) {
+		return dao.addArticleDAO(id, desc, precio, isOutlet,stock);
+	}
+	
+	/* (non-Javadoc)
+	 * @see businessLogic.ForumBLInterface#addStock(java.lang.String, java.lang.String, int, boolean, int)
+	 */
+	public Article addStock(String id, int stock) {
+		return dao.addStockDAO(id,stock);
 	}
 	/* (non-Javadoc)
 	 * @see businessLogic.ForumBLInterface#removeStock(java.lang.String)
@@ -170,5 +177,9 @@ public class ForumBL implements ForumBLInterface {
 		if (id==null)  throw new Exception("id null");
 		return dao.getStockDAO(id);
 	}
+	public void removeLastPurchase(User usr) {
+		dao.removeLastPurchaseDAO(usr);
+	}
+	
 }
 

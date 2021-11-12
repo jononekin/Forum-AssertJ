@@ -298,6 +298,7 @@ public class UserPurchaseGUI extends JFrame {
 		contentPane.add(btnBuy);
 		
 		tablePurchases = new JTable();
+		tablePurchases.setName("tablePurchases");
 		tablePurchases.setBounds(30, 260, 403, 200);
 		//contentPane.add(tablePurchases);
 		lblStock.setBounds(29, 93, 44, 29);

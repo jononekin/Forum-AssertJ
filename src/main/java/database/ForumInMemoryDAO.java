@@ -52,10 +52,20 @@ public class ForumInMemoryDAO implements ForumDAOInterface  {
 		return u.getPurchases(firstDate, lastDate);
 	}
 
-	
-	public Article addStockDAO(String id, String desc, int price, boolean isOutlet, int stock) {
+
+	public void removeLastPurchaseDAO(User usr) {
+		usr.removeLastPurchase();
+		
+	}
+	public Article addArticleDAO(String id, String desc, int price, boolean isOutlet, int stock) {
 		Article art=new Article(id,  desc,  price,  isOutlet,stock);
 		dbArticles.put(id, art);
+		return art;
+	}
+	
+	public Article addStockDAO(String id,int stock) {
+		Article art=dbArticles.get(id);
+		art.addStock(stock);
 		return art;
 	}
 
@@ -97,7 +107,6 @@ public class ForumInMemoryDAO implements ForumDAOInterface  {
 
 		
 	}
-
 	
 
 }

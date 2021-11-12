@@ -43,6 +43,10 @@ public class Article {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+	
+	public void addStock(int s) {
+		stock=stock+s;
+	}
 	public String toString() {
 		return description;
 	}

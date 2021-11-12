@@ -62,6 +62,22 @@ public class User {
 		if (basket==null) basket=new Purchase();
 		basket.removeBasket(a,cantidad);
 	}
+	public void removeLastPurchase() {
+		Purchase pur=purchases.get(purchases.size()-1);
+		Iterator<PurchasedArticle> iter=pur.getPurchaseIterator();
+		PurchasedArticle pa;
+		Article art;
+		int q;
+		while (iter.hasNext()) {
+			pa=iter.next();
+			art=pa.getArt();
+			q=pa.getQuantity();
+			art.addStock(q);	
+		}
+		
+		purchases.remove(purchases.size()-1);
+		
+	}
 	public Purchase getBasket() {
 		return basket;
 	}

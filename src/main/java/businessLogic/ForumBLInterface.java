@@ -30,7 +30,10 @@ public interface ForumBLInterface {
 
 	Iterator<Purchase> getPurchases(User u, Date firstDate, Date lastDate);
 
-	Article addStock(String id, String desc, int precio, boolean isOutlet, int stock);
+	Article addArticleStock(String id, String desc, int precio, boolean isOutlet, int stock);
+	
+	Article addStock(String id, int stock);
+
 
 	Article removeStock(String id);
 
@@ -39,5 +42,8 @@ public interface ForumBLInterface {
 	List<Article> getArticles();
 	
 	Article getStock(String id) throws Exception;
+	
+	public void removeLastPurchase(User usr);
+
 
 }
