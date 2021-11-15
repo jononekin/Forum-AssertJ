@@ -66,7 +66,7 @@ public class ForumGUIMockTest {
 	@After
 	public void afterEach() {
 		 
-		//mainWindowFixture.cleanUp();
+		mainWindowFixture.cleanUp();
 
 	}
 	

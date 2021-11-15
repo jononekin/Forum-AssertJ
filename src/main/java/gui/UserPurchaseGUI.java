@@ -105,7 +105,6 @@ public class UserPurchaseGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public UserPurchaseGUI(User u,  ForumBLInterface forumBL) {
-		System.out.println("user assigned: "+u);
 		user=u;
 		this.forumBL=forumBL;
 		this.setName("userPurchaseGUI");
@@ -288,7 +287,6 @@ public class UserPurchaseGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					forumBL.buy(user, new Date());
-					System.out.println("user "+user);
 					float bonus=forumBL.getBonus(user.getId());
 					lblResult.setText("Obtained bonus: "+Float.toString(bonus));
 					btnBuy.setEnabled(false);
@@ -333,7 +331,6 @@ public class UserPurchaseGUI extends JFrame {
 		jComboBoxArticles.addPropertyChangeListener(new PropertyChangeListener() {
 			public void propertyChange(PropertyChangeEvent evt) {
 				Article art =  (Article) jComboBoxArticles.getSelectedItem();
-				System.out.println("Article "+art);
 				lblPrice1.setText(Float.toString(art.getPrice()));
 				lblStock1.setText(Integer.toString(art.getStock()));
 				chckbxNewCheckBox.setSelected(art.isOutlet());
