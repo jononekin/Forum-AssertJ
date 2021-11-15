@@ -44,7 +44,13 @@ import java.awt.Color;
 public class UserPurchaseGUI extends JFrame {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private User user;
+	
+
 	private ForumBLInterface forumBL;
 	//private HashMap<String, Article> hashArticles=new HashMap<String, Article>();
 	private JPanel contentPane;
@@ -81,7 +87,7 @@ public class UserPurchaseGUI extends JFrame {
 					
 					ForumBLInterface bl=new ForumBL(new ForumInMemoryDAO());
 					User usr=bl.addUser("33404521B", "jon","tel456");
-					UserPurchaseGUI frame = new UserPurchaseGUI(usr,bl);
+					UserPurchaseGUI frame = new UserPurchaseGUI(new User("33404521B", "jon","tel456"),bl);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -90,10 +96,16 @@ public class UserPurchaseGUI extends JFrame {
 		});
 	}
 
+	public UserPurchaseGUI(ForumBLInterface forumBL) {
+		 new UserPurchaseGUI(null, forumBL);
+
+	}
+
 	/**
 	 * Create the frame.
 	 */
-	public UserPurchaseGUI(User u, final ForumBLInterface forumBL) {
+	public UserPurchaseGUI(User u,  ForumBLInterface forumBL) {
+		System.out.println("user assigned: "+u);
 		user=u;
 		this.forumBL=forumBL;
 		this.setName("userPurchaseGUI");
@@ -276,6 +288,7 @@ public class UserPurchaseGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					forumBL.buy(user, new Date());
+					System.out.println("user "+user);
 					float bonus=forumBL.getBonus(user.getId());
 					lblResult.setText("Obtained bonus: "+Float.toString(bonus));
 					btnBuy.setEnabled(false);
@@ -320,6 +333,7 @@ public class UserPurchaseGUI extends JFrame {
 		jComboBoxArticles.addPropertyChangeListener(new PropertyChangeListener() {
 			public void propertyChange(PropertyChangeEvent evt) {
 				Article art =  (Article) jComboBoxArticles.getSelectedItem();
+				System.out.println("Article "+art);
 				lblPrice1.setText(Float.toString(art.getPrice()));
 				lblStock1.setText(Integer.toString(art.getStock()));
 				chckbxNewCheckBox.setSelected(art.isOutlet());
