@@ -203,7 +203,6 @@ public class ForumGUITest {
 		int r=0; 
 		while ((r<=tablePurchasesFixture.rowCount()) && (!found)) {
 			JTableCellFixture cell=tablePurchasesFixture.cell(TableCell.row(r).column(1));
-			System.out.println("cell"+cell.value());
 	    	if ((cell.value().compareTo(art)==0)) found=true;
 	    	else r++;
 		}
