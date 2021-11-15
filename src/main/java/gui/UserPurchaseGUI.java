@@ -350,7 +350,7 @@ public class UserPurchaseGUI extends JFrame {
 		scrollPanePurchases.setBounds(new Rectangle(175, 63, 346, 150));
 		scrollPanePurchases.setViewportView(tablePurchases);
 		
-		tableModelPurchases = new DefaultTableModel(null, columnNamesPurchases);
+		tableModelPurchases = new DefaultTableModel(null, columnNamesPurchases); 
 		
 		tableModelPurchases.setColumnCount(4); // another column added to allocate ev objects
 
