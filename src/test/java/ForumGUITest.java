@@ -71,7 +71,7 @@ public class ForumGUITest {
 	}
 	
 	// Zure test-ak
-/*	@Test
+	@Test
 	public void test1() { 
 		//find the fixtures
 		//input fields
@@ -98,15 +98,14 @@ public class ForumGUITest {
 			//
 			//write the assertions
 			labelFixture.requireText(expectedResult);
-			lo(5);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 	}
-*/
+
 	// Zure test-ak
-	/*	@Test
+		@Test
 		public void test2() { 
 			//find the fixtures
 			//input fields
@@ -128,7 +127,7 @@ public class ForumGUITest {
 			    String qty1="2";
 			    Article art2=bl.getStock("2");
 			    String qty2="1";
-				String expectedResult="Obtained bonus: 13.88";
+				String expectedResult="Obtained bonus: 27.76";
 				
 				//execute the interactions
 				jComboBoxFixture.selectItem(art1.toString());
@@ -145,13 +144,12 @@ public class ForumGUITest {
 
 				//write the assertions
 				labelFixture.requireText(expectedResult);
-				lo(5);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 			bl.removeLastPurchase(usr);	
-		}*/
+		}
 		
 		@Test
 		public void test3() { 
@@ -159,7 +157,7 @@ public class ForumGUITest {
 			//input fields
 			JTextComponentFixture jTextQtyFixture=mainWindowFixture.textBox("articleQty");
 			JComboBoxFixture jComboBoxFixture=mainWindowFixture.comboBox("comboBoxArticles");
-			JTableFixture tablePurchasesFixture = mainWindowFixture.table("tablePurchases");
+			 tablePurchasesFixture = mainWindowFixture.table("tablePurchases");
 			     
 			//buttons
 			JButtonFixture buyButtonFixture=mainWindowFixture.button("buy");
@@ -175,7 +173,7 @@ public class ForumGUITest {
 			    String qty1="1";
 			    Article art2=bl.getStock("1");
 			    String qty2="2";
-				String expectedResult="Obtained bonus: 13.88";
+				String expectedResult="Obtained bonus: 38.17";
 				
 				//execute the interactions
 				jComboBoxFixture.selectItem(art1.toString());
@@ -193,7 +191,6 @@ public class ForumGUITest {
 
 				//write the assertions
 				labelFixture.requireText(expectedResult);
-				lo(5);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
