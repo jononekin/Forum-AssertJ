@@ -87,7 +87,7 @@ public class UserPurchaseGUI extends JFrame {
 					
 					ForumBLInterface bl=new ForumBL(new ForumInMemoryDAO());
 					User usr=bl.addUser("33404521B", "jon","tel456");
-					UserPurchaseGUI frame = new UserPurchaseGUI(new User("33404521B", "jon","tel456"),bl);
+					UserPurchaseGUI frame = new UserPurchaseGUI(usr,bl);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
