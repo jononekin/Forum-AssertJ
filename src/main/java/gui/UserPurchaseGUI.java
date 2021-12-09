@@ -64,7 +64,7 @@ public class UserPurchaseGUI extends JFrame {
 	private JLabel lblPrice1;
 	private JCheckBox chckbxNewCheckBox;
 	private final JLabel lblStock = new JLabel("Stock: ");
-	private JLabel lblStock1;
+	private JLabel lblStockValue;
 	
 	private JScrollPane scrollPanePurchases = new JScrollPane();
 
@@ -209,7 +209,7 @@ public class UserPurchaseGUI extends JFrame {
 					tablePurchases.getColumnModel().removeColumn(tablePurchases.getColumnModel().getColumn(3)); // not shown in JTable
 				}
 				
-					lblStock1.setText(Integer.toString(art.getStock()));
+					lblStockValue.setText(Integer.toString(art.getStock()));
 					btnBuy.setEnabled(true);
 
 				
@@ -221,7 +221,7 @@ public class UserPurchaseGUI extends JFrame {
 					e1.printStackTrace();
 				} catch (NotStockException e1) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					lblResult.setText(e1.getMessage());
 				}
 				
 			}
@@ -254,7 +254,7 @@ public class UserPurchaseGUI extends JFrame {
 					try {
 						forumBL.removeBasket(user, art, (Integer)tableModelPurchases.getValueAt(row,0));
 					
-					lblStock1.setText(Integer.toString(art.getStock()));
+					lblStockValue.setText(Integer.toString(art.getStock()));
 					tableModelPurchases.removeRow(row);
 
 					
@@ -315,9 +315,9 @@ public class UserPurchaseGUI extends JFrame {
 		lblStock.setBounds(29, 93, 44, 29);
 		contentPane.add(lblStock);
 		
-		lblStock1 = new JLabel("stock");
-		lblStock1.setBounds(84, 99, 61, 16);
-		contentPane.add(lblStock1);
+		lblStockValue = new JLabel("stock");
+		lblStockValue.setBounds(84, 99, 61, 16);
+		contentPane.add(lblStockValue);
 		
 		jComboBoxArticles.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
@@ -332,7 +332,7 @@ public class UserPurchaseGUI extends JFrame {
 			public void propertyChange(PropertyChangeEvent evt) {
 				Article art =  (Article) jComboBoxArticles.getSelectedItem();
 				lblPrice1.setText(Float.toString(art.getPrice()));
-				lblStock1.setText(Integer.toString(art.getStock()));
+				lblStockValue.setText(Integer.toString(art.getStock()));
 				chckbxNewCheckBox.setSelected(art.isOutlet());
 			}
 		});
@@ -340,7 +340,7 @@ public class UserPurchaseGUI extends JFrame {
 			public void itemStateChanged(ItemEvent e) {
 				Article art =  (Article) jComboBoxArticles.getSelectedItem();
 				lblPrice1.setText(Float.toString(art.getPrice()));
-				lblStock1.setText(Integer.toString(art.getStock()));
+				lblStockValue.setText(Integer.toString(art.getStock()));
 				chckbxNewCheckBox.setSelected(art.isOutlet());
 			}
 		});
